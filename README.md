@@ -27,7 +27,9 @@ Friday 2nd of May 2025.
 ## Project Specification
 This is a group of 4 students and we're going to develop a fully-functionioning artefact using an agile-based approach and crucial such as
 teamwork, decision making, time-management and effective communication & collaboration.
+
 The artefact will be a web application for both mobile and desktop systems. 
+
 The web application will be implemented using the following coding software/languages:
 * JavaScript
 * jQuery
