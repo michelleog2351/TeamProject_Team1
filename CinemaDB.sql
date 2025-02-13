@@ -1,3 +1,6 @@
+select * from screening;
+
+
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
 USE `cinemaDB`;
@@ -93,6 +96,81 @@ CREATE TABLE `Admin` (
   `Password` varchar(50) NOT NULL,
   PRIMARY KEY (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+INSERT INTO `Film` (`Name`, `Category`, `Genre`, `Director`, `CoverImage`, `VideoURL`, `ReleaseDate`)
+VALUES
+('The Dark Knight', 'Action', 'Superhero', 'Christopher Nolan', 'dark_knight_cover.jpg', 'https://example.com/dark_knight', '2008-07-18'),
+('Inception', 'Sci-Fi', 'Thriller', 'Christopher Nolan', 'inception_cover.jpg', 'https://example.com/inception', '2010-07-16'),
+('The Shawshank Redemption', 'Drama', 'Crime', 'Frank Darabont', 'shawshank_cover.jpg', 'https://example.com/shawshank', '1994-09-22'),
+('Interstellar', 'Sci-Fi', 'Adventure', 'Christopher Nolan', 'interstellar_cover.jpg', 'https://example.com/interstellar', '2014-11-07'),
+('The Godfather', 'Crime', 'Drama', 'Francis Ford Coppola', 'godfather_cover.jpg', 'https://example.com/godfather', '1972-03-24');
+
+INSERT INTO `Theatre` (`Capacity`)
+VALUES
+(50),
+(30),
+(40),
+(30),
+(20);
+
+INSERT INTO `Screening` (`StartTime`, `Date`, `SeatsRemaining`, `TheatreID`, `FilmID`)
+VALUES
+('18:30:00', '2025-02-14', 20, 1, 1),  
+('20:45:00', '2025-02-14', 15, 2, 2),  
+('17:00:00', '2025-02-15', 10, 3, 3),  
+('21:00:00', '2025-02-15', 5, 4, 4),   
+('19:30:00', '2025-02-16', 12, 5, 5);  
+
+INSERT INTO `Booking` (`NoOfSeats`, `Cost`, `Email`)
+VALUES
+(2, 20.00, 'john.doe@example.com'),
+(4, 40.00, 'jane.smith@example.com'),
+(1, 10.00, 'bob.johnson@example.com'),
+(3, 30.00, 'alice.williams@example.com'),
+(5, 50.00, 'charlie.brown@example.com');
+
+INSERT INTO `TicketType` (`Name`, `Cost`)
+VALUES
+('Standard', 10.00),
+('VIP', 20.00),
+('Student', 7.50),
+('Senior', 5.00),
+('Child', 3.00);
+
+
+INSERT INTO `Ticket` (`BookingID`, `TheatreID`, `ScreeningID`, `TicketType`)
+VALUES
+(1, 1, 1, 'Standard'),  -- Booking 1, Theatre 1, Screening 1, Standard ticket
+(2, 2, 2, 'VIP'),       -- Booking 2, Theatre 2, Screening 2, VIP ticket
+(3, 3, 3, 'Student'),   -- Booking 3, Theatre 3, Screening 3, Student ticket
+(4, 4, 4, 'Standard'),  -- Booking 4, Theatre 4, Screening 4, Standard ticket
+(5, 5, 5, 'VIP');       -- Booking 5, Theatre 5, Screening 5, VIP ticket
+
+INSERT INTO `Seat` (`SeatNo`, `Cost`)
+VALUES
+(1, 10),
+(2, 12),
+(3, 15),
+(4, 10),
+(5, 20);
+
+INSERT INTO `Manager` (`Name`, `Email`, `Password`)
+VALUES
+('Alice Johnson', 'alice.johnson@example.com', 'password123'),
+('Bob Smith', 'bob.smith@example.com', 'securePass456'),
+('Charlie Brown', 'charlie.brown@example.com', 'chocoCake789'),
+('Dana White', 'dana.white@example.com', 'admin@2025'),
+('Eve Black', 'eve.black@example.com', 'evePass001');
+
+INSERT INTO `Admin` (`Name`, `Email`, `Password`)
+VALUES
+('Grace Lee', 'grace.lee@example.com', 'gracePass987'),
+('Henry Ford', 'henry.ford@example.com', 'fordPassword2025'),
+('Ivy Green', 'ivy.green@example.com', 'greenPass123'),
+('Jack Turner', 'jack.turner@example.com', 'jackPass1234'),
+('Lily Adams', 'lily.adams@example.com', 'lilyPass2025');
 
 COMMIT;
 
