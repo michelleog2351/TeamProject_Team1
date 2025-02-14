@@ -1,0 +1,23 @@
+MAY NEED TO RUN THESE AFTER EVERY PULL
+
+# Install express (web framework for Node.js)
+npm install express
+
+# Install mysql2 (MySQL client for Node.js)
+npm install mysql2
+
+# Install dotenv (for managing environment variables)
+npm install dotenv
+
+# Install body-parser (middleware to parse request bodies)
+npm install body-parser
+
+# Install cors (middleware for enabling Cross-Origin Resource Sharing)
+npm install cors
+
+# Install body-parser (middleware to parse request bodies)
+npm install underscore
+
+# Install nodemon (development tool to automatically restart server on changes)
+npm install --save-dev nodemon
+

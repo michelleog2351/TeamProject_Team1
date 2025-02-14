@@ -1,5 +1,4 @@
-select * from screening;
-
+-- select * from screening;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
@@ -84,17 +83,19 @@ CREATE TABLE `Seat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `Manager` (
+  `ManagerID` INT NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  PRIMARY KEY (`Email`)
+  PRIMARY KEY (`ManagerID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Admin` (
+  `AdminID` INT NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
-  PRIMARY KEY (`Email`)
+  PRIMARY KEY (`AdminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
