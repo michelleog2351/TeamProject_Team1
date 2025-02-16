@@ -4,6 +4,7 @@ var _ = require('underscore');
 var cors = require("cors");
 
 var admin = require('./model/admin');
+var film = require('./model/film');
 
 
 
@@ -35,8 +36,17 @@ app.post("/deleteAdmin/:adminID", function(req, res){
     admin.deleteAdmin(req, res);
 });
 
+app.get("/films", function(req,res){
+    film.getFilms(req, res);
+});
 
+app.get("/film/:filmID", function(req,res){
+	film.getFilm(req,res);
+});
 
+app.post("/updateFilm/:filmID", function(req, res) {
+    film.updateFilm(req, res);
+});
 
 var myServer = app.listen(3000, function() {
     console.log("Server listening on port 3000");
