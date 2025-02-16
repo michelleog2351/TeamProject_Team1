@@ -84,8 +84,8 @@ exports.updateFilm = function (req, res) {
     });
 };
 
-  exports.deleteFilm = function (req, res) {
-    var filmID = req.params.filmID;
+exports.deleteFilm = function (req, res) {
+  var filmID = req.params.filmID;
   
     const query = "DELETE FROM film WHERE FilmID = ?";
     connection.query(query, [filmID], function (err, result) {

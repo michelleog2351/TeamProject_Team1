@@ -39,7 +39,7 @@ function getJsonData() {
             let ID = e.target.value;
             $.post(`http://localhost:3000/deleteFilm/${ID}`, { FilmID: ID })
                 .done(function () {
-                    location.replace("http://localhost:3000/films.html");
+                    location.replace("http://localhost:3000/film.html");
                 });
         });
     });

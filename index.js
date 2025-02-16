@@ -52,6 +52,9 @@ app.post("/createFilm", function(req, res) {
     film.createFilm(req, res);
 });
 
+app.post("/deleteFilm/:filmID", function (req, res) {
+    film.deleteFilm(req, res);
+});
 var myServer = app.listen(3000, function() {
     console.log("Server listening on port 3000");
   });
