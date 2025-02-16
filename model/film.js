@@ -48,8 +48,9 @@ exports.createFilm = function (req, res) {
   var director = req.body.director;
   var coverImage = req.body.coverImage;
   var videoURL = req.body.videoURL;
-  const query = "INSERT INTO film (Name, Category, Genre, Director, CoverImage, VideoURL) VALUES (?, ?, ?, ?, ?, ?)";
-  connection.query(query, [name, category, genre, director, coverImage, videoURL], function (err, result) {
+  var ReleaseDate = req.body.ReleaseDate;
+  const query = "INSERT INTO film (Name, Category, Genre, Director, CoverImage, VideoURL, ReleaseDate) VALUES (?, ?, ?, ?, ?, ?, ?)";
+  connection.query(query, [name, category, genre, director, coverImage, videoURL, ReleaseDate], function (err, result) {
     if (err) 
         {
       console.error(err);
@@ -67,8 +68,9 @@ exports.updateFilm = function (req, res) {
     var director = req.body.director;
     var coverImage = req.body.coverImage;
     var videoURL = req.body.videoURL;
-    const query = "UPDATE film SET Name = ?, Category = ?, Genre = ?, Director = ?, CoverImage = ?, VideoURL = ? WHERE FilmID = ?";
-    connection.query(query, [name, category, genre, director, coverImage, videoURL, filmID], function (err, result) {
+    var ReleaseDate = req.body.ReleaseDate;
+    const query = "UPDATE film SET Name = ?, Category = ?, Genre = ?, Director = ?, CoverImage = ?, VideoURL = ?, ReleaseDate = ? WHERE FilmID = ?";
+    connection.query(query, [name, category, genre, director, coverImage, videoURL, ReleaseDate, filmID], function (err, result) {
       if (err) 
         {
         console.error(err);
