@@ -1,4 +1,4 @@
--- select * from screening;
+-- select * from admin;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
