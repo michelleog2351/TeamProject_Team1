@@ -1,4 +1,4 @@
--- select * from screening;
+-- select * from admin;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
@@ -86,7 +86,7 @@ CREATE TABLE `Seat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `Manager` (
-  `ManagerID` INT NOT NULL,
+  `ManagerID` INT NOT NULL auto_increment,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
@@ -94,7 +94,7 @@ CREATE TABLE `Manager` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Admin` (
-  `AdminID` INT NOT NULL,
+  `AdminID` INT NOT NULL auto_increment,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
@@ -105,11 +105,11 @@ CREATE TABLE `Admin` (
 
 INSERT INTO `Film` (`Name`, `Category`, `Genre`, `Director`, `CoverImage`, `VideoURL`, `ReleaseDate`)
 VALUES
-('The Dark Knight', 'Action', 'Superhero', 'Christopher Nolan', 'dark_knight_cover.jpg', 'https://example.com/dark_knight', '2008-07-18'),
-('Inception', 'Sci-Fi', 'Thriller', 'Christopher Nolan', 'inception_cover.jpg', 'https://example.com/inception', '2010-07-16'),
-('The Shawshank Redemption', 'Drama', 'Crime', 'Frank Darabont', 'shawshank_cover.jpg', 'https://example.com/shawshank', '1994-09-22'),
-('Interstellar', 'Sci-Fi', 'Adventure', 'Christopher Nolan', 'interstellar_cover.jpg', 'https://example.com/interstellar', '2014-11-07'),
-('The Godfather', 'Crime', 'Drama', 'Francis Ford Coppola', 'godfather_cover.jpg', 'https://example.com/godfather', '1972-03-24');
+('The Dark Knight', 'Action', 'PG-13', 'Christopher Nolan', 'dark_knight_cover.jpg', 'https://example.com/dark_knight', '2008-07-18'),
+('Inception', 'Sci-Fi', 'PG-13', 'Christopher Nolan', 'inception_cover.jpg', 'https://example.com/inception', '2010-07-16'),
+('The Shawshank Redemption', 'Drama', 'R', 'Frank Darabont', 'shawshank_cover.jpg', 'https://example.com/shawshank', '1994-09-22'),
+('Interstellar', 'Sci-Fi', 'PG-13', 'Christopher Nolan', 'interstellar_cover.jpg', 'https://example.com/interstellar', '2014-11-07'),
+('The Godfather', 'Crime', 'R', 'Francis Ford Coppola', 'godfather_cover.jpg', 'https://example.com/godfather', '1972-03-24');
 
 INSERT INTO `Theatre` (`Capacity`)
 VALUES
