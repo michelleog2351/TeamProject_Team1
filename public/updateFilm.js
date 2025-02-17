@@ -56,13 +56,17 @@ $(document).ready(function () {
 
 function getJsonData(filmID) {
     $.getJSON(`http://localhost:3000/film/${filmID}`, function (data) {
+
+        let releaseDate = new Date(data.ReleaseDate);
+        let formattedDate = releaseDate.toISOString().split('T')[0];
+
         $("#name").val(data.Name);
         $("#category").val(data.Category);
         $("#genre").val(data.Genre);
         $("#director").val(data.Director);
         $("#coverImage").val(data.CoverImage);
         $("#videoURL").val(data.VideoURL);
-        $("#ReleaseDate").val(data.ReleaseDate);
+        $("#ReleaseDate").val(formattedDate);
     }).fail(function () {
         alert("Error fetching film details.");
         location.replace("http://localhost:3000/film.html");

@@ -13,6 +13,8 @@ $(document).ready(function () {
 function getJsonData() {
     $.getJSON(`http://localhost:3000/films`, function (data) {
         $.each(data, function (i, value) {
+            let releaseDate = new Date(value.ReleaseDate);
+            let formattedDate = releaseDate.toISOString().split('T')[0];
             $(`#tbody`).append(
                 `<tr>
                 <td id="name${value.Name}" >${value.Name}</td>
@@ -21,7 +23,7 @@ function getJsonData() {
                 <td id="director${value.Director}">${value.Director}</td>
                 <td><img src="${value.CoverImage}" alt="Cover" width="50"></td>
                 <td><a href="${value.VideoURL}" target="_blank">Watch</a></td>
-                <td id="ReleaseDate${value.ReleaseDate}">${value.ReleaseDate}</td>
+                <td id="ReleaseDate${formattedDate}">${formattedDate}</td>
                 <td><button type="button" class="updateButton" value="${value.FilmID}">Update</button></td>
                 <td><button type="button" class="deleteButton" value="${value.FilmID}">Delete</button></td>
                 </tr>`
