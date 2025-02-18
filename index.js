@@ -5,8 +5,12 @@ var cors = require("cors");
 
 var admin = require('./model/admin');
 var film = require('./model/film');
-
-
+var screening = require('./model/screening');
+var theatre = require('./model/theatre');
+var ticket = require('./model/ticket');
+var manager = require('./model/manager');
+var booking = require('./model/booking');
+var ticketType = require('./model/ticketType');
 
 var app = express();
 app.use(cors());
@@ -58,3 +62,24 @@ app.post("/deleteFilm/:filmID", function (req, res) {
 var myServer = app.listen(3000, function() {
     console.log("Server listening on port 3000");
   });
+
+
+  app.get("/screening/:screeningID", function(req,res){
+	screening.getScreening(req,res);
+});
+
+app.get("/screenings", function(req,res){
+	screening.getScreenings(req,res);
+});
+
+app.post("/updateScreening/:screeningID", function(req, res) {
+    screening.updateScreening(req, res);
+});
+
+app.post("/createScreening/:name?/:username?/:password?", function(req,res){
+	screening.createScreening(req,res);
+});
+
+app.post("/deleteScreening/:screeningID", function(req, res){
+    screening.deleteScreening(req, res);
+});
