@@ -1,4 +1,6 @@
 $(`document`).ready(function () {
+    nav();
+    footer();
     getJsonData();
     $(`#add`).append(
         `<button type="button" class="addButton">Add</button>`

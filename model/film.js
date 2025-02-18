@@ -44,13 +44,14 @@ exports.getFilms = function (req, res) {
 exports.createFilm = function (req, res) {
   var name = req.body.name;
   var category = req.body.category;
+  var runningTime = req.body.runningTime;
   var genre = req.body.genre;
   var director = req.body.director;
   var coverImage = req.body.coverImage;
   var videoURL = req.body.videoURL;
   var ReleaseDate = req.body.ReleaseDate;
-  const query = "INSERT INTO film (Name, Category, Genre, Director, CoverImage, VideoURL, ReleaseDate) VALUES (?, ?, ?, ?, ?, ?, ?)";
-  connection.query(query, [name, category, genre, director, coverImage, videoURL, ReleaseDate], function (err, result) {
+  const query = "INSERT INTO film (Name, Category, RunningTime, Genre, Director, CoverImage, VideoURL, ReleaseDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+  connection.query(query, [name, category, runningTime, genre, director, coverImage, videoURL, ReleaseDate], function (err, result) {
     if (err) 
         {
       console.error(err);
@@ -64,13 +65,14 @@ exports.updateFilm = function (req, res) {
     var filmID = req.params.filmID;
     var name = req.body.name;
     var category = req.body.category;
+    var runningTime = req.body.runningTime;
     var genre = req.body.genre;
     var director = req.body.director;
     var coverImage = req.body.coverImage;
     var videoURL = req.body.videoURL;
     var ReleaseDate = req.body.ReleaseDate;
-    const query = "UPDATE film SET Name = ?, Category = ?, Genre = ?, Director = ?, CoverImage = ?, VideoURL = ?, ReleaseDate = ? WHERE FilmID = ?";
-    connection.query(query, [name, category, genre, director, coverImage, videoURL, ReleaseDate, filmID], function (err, result) {
+    const query = "UPDATE film SET Name = ?, Category = ?, RunningTime = ?, Genre = ?, Director = ?, CoverImage = ?, VideoURL = ?, ReleaseDate = ? WHERE FilmID = ?";
+    connection.query(query, [name, category, runningTime, genre, director, coverImage, videoURL, ReleaseDate, filmID], function (err, result) {
       if (err) 
         {
         console.error(err);

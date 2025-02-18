@@ -6,11 +6,11 @@ var cors = require("cors");
 var admin = require('./model/admin');
 var film = require('./model/film');
 var screening = require('./model/screening');
-var theatre = require('./model/theatre');
-var ticket = require('./model/ticket');
-var manager = require('./model/manager');
-var booking = require('./model/booking');
-var ticketType = require('./model/ticketType');
+// var theatre = require('./model/theatre');
+// var ticket = require('./model/ticket');
+// var manager = require('./model/manager');
+// var booking = require('./model/booking');
+// var ticketType = require('./model/ticketType');
 
 var app = express();
 app.use(cors());
@@ -76,7 +76,7 @@ app.post("/updateScreening/:screeningID", function(req, res) {
     screening.updateScreening(req, res);
 });
 
-app.post("/createScreening/:name?/:username?/:password?", function(req,res){
+app.post("/createScreening", function(req,res){
 	screening.createScreening(req,res);
 });
 

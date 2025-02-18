@@ -44,11 +44,11 @@ exports.getScreening = function (req, res) {
 
 //Creates a new entry of Screening by passing name, email and password
 exports.createScreening = function (req, res) {
-    var startTime = req.params.startTime;
-    var date = req.params.date;
-    var seatsRemaining = req.params.seatsRemaining;
-    var theatreID = req.params.theatreID;
-    var filmID = req.params.filmID;
+    var startTime = req.body.startTime;
+    var date = req.body.date;
+    var seatsRemaining = req.body.seatsRemaining;
+    var theatreID = req.body.theatreID;
+    var filmID = req.body.filmID;
 
   const query = "INSERT INTO Screening (StartTime, Date, SeatsRemaining, TheatreID, FilmID ) VALUES (?, ?, ?, ?, ?)"; //Prepared statments
   connection.query(query, [startTime, date, seatsRemaining, theatreID, filmID], function (err, result) {
@@ -80,17 +80,18 @@ exports.deleteScreening = function (req, res) {
 //Updates an Screening to have new data
 exports.updateScreening = function (req, res) {
   var screeningID = req.params.screeningID;
-  var startTime = req.params.startTime;
-  var date = req.params.date;
-  var seatsRemaining = req.params.seatsRemaining;
-  var theatreID = req.params.theatreID;
-  var filmID = req.params.filmID;
+  var startTime = req.body.startTime; 
+  var date = req.body.date;
+  var seatsRemaining = req.body.seatsRemaining;
+  var theatreID = req.body.theatreID;
+  var filmID = req.body.filmID;
 
   const query =
     "UPDATE Screening SET StartTime = ?, Date = ?, SeatsRemaining = ?, TheatreID = ?, FilmID = ? WHERE ScreeningID = ?";
+
   connection.query(
     query,
-    [screeningID],
+    [startTime, date, seatsRemaining, theatreID, filmID, screeningID],
     function (err, result) {
       if (err) {
         console.error(err);

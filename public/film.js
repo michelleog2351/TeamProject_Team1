@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    nav();
+    footer();
     getJsonData();
     $(`#add`).append(
         `<button type="button" class="addButton">Add</button>`
@@ -19,6 +21,7 @@ function getJsonData() {
                 `<tr>
                 <td id="name${value.Name}" >${value.Name}</td>
                 <td id="category${value.Category}">${value.Category}</td>
+                <td id="runningTime${value.RunningTime}">${value.RunningTime}</td>
                 <td id="genre${value.Genre}">${value.Genre}</td>
                 <td id="director${value.Director}">${value.Director}</td>
                 <td><img src="${value.CoverImage}" alt="Cover" width="50"></td>

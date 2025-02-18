@@ -8,6 +8,10 @@ $(document).ready(function () {
         <label class="form-label" for="category">Category</label>
         <input class="form-control" type="text" id="category" name="category" required>
 
+        <label class="form-label" for="runningTime">Running Time in Minutes</label>
+        <input class="form-control" type="text" id="runningTime" name="runningTime" required>
+        
+
         <label class="form-label" for="genre">Genre</label>
         <input class="form-control" type="text" id="genre" name="genre" required>
 
@@ -36,6 +40,7 @@ $(document).ready(function () {
         let updatedFilm = {
             name: $("#name").val(),
             category: $("#category").val(),
+            runningTime: $("#runningTime").val(),
             genre: $("#genre").val(),
             director: $("#director").val(),
             coverImage: $("#coverImage").val(),
@@ -62,6 +67,7 @@ function getJsonData(filmID) {
 
         $("#name").val(data.Name);
         $("#category").val(data.Category);
+        $("#runningTime").val(data.RunningTime),
         $("#genre").val(data.Genre);
         $("#director").val(data.Director);
         $("#coverImage").val(data.CoverImage);
