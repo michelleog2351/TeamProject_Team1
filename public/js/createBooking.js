@@ -1,42 +1,75 @@
 $(document).ready(function () {
-    $("#fbody").append(`
-        <label class="form-label" for="name">Name</label>
-        <input class="form-control" type="text" id="name" name="name" required>
-        <label class="form-label" for="category">Category</label>
-        <input class="form-control" type="text" id="category" name="category" required>
-        <label class="form-label" for="genre">Genre</label>
-        <input class="form-control" type="text" id="genre" name="genre" required>
-        <label class="form-label" for="director">Director</label>
-        <input class="form-control" type="text" id="director" name="director" required>
-        <label class="form-label" for="coverImage">Cover Image URL</label>
-        <input class="form-control" type="text" id="coverImage" name="coverImage" required>
-        <label class="form-label" for="videoURL">Video URL</label>
-        <input class="form-control" type="text" id="videoURL" name="videoURL" required>
-        <label class="form-label" for="ReleaseDate">Release Date</label>
-        <input class="form-control" type="date" id="ReleaseDate" name="ReleaseDate" required>
+  $("#fbody").append(`
+        <div class="mb-3">
+					<label class="form-label" for="bookingID">Booking ID</label>
+					<input
+						class="form-control"
+						type="text"
+						id="bookingID"
+						name="bookingID"
+						placeholder="Enter booking ID"
+						step="0.01"
+						required
+					/>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" for="noOfSeats">No. Seats</label>
+					<input
+						class="form-control"
+						type="number"
+						id="noOfSeats"
+						name="noOfSeats"
+						placeholder="Enter total number of seats"
+						min="1"
+						required
+					/>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" for="cost">Total Cost</label>
+					<input
+						class="form-control"
+						type="number"
+						id="cost"
+						name="cost"
+						placeholder="Enter total cost"
+						step="0.01"
+						required
+					/>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" for="email">Email</label>
+					<input
+						class="form-control"
+						type="number"
+						id="email"
+						name="email"
+						placeholder="Enter email address"
+						step="0.01"
+						required
+					/>
+				</div>
         <br>
     `);
-    $("#cancel").click(function () {
-        location.replace("http://localhost:3000/film.html");
-    });
+  $("#cancel").click(function () {
+    location.replace("http://localhost:3000/booking.html");
+  });
 
-    $("#save").click(function () {
-        let newFilm = {
-            name: $("#name").val(),
-            category: $("#category").val(),
-            genre: $("#genre").val(),
-            director: $("#director").val(),
-            coverImage: $("#coverImage").val(),
-            videoURL: $("#videoURL").val(),
-            ReleaseDate: $("#ReleaseDate").val()
-        };
-        $.post(`http://localhost:3000/createFilm`, newFilm)
-            .done(function () {
-                alert("Film created successfully!");
-                location.replace("http://localhost:3000/film.html");
-            })
-            .fail(function () {
-                alert("Error creating film.");
-            });
-    });
+  $("#save").click(function () {
+    let newBooking = {
+      noOfSeats: $("#noOfSeats").val(),
+      cost: $("#cost").val(),
+      email: $("#email").val(),
+    };
+    $.post(`http://localhost:3000/createBooking`, newBooking)
+      .done(function () {
+        alert("Film created successfully!");
+        location.replace("http://localhost:3000/booking.html");
+      })
+      .fail(function () {
+        alert("Error creating booking.");
+      });
+  });
 });
