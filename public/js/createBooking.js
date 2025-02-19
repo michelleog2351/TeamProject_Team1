@@ -43,7 +43,7 @@ $(document).ready(function () {
 					<label class="form-label" for="email">Email</label>
 					<input
 						class="form-control"
-						type="number"
+						type="text"
 						id="email"
 						name="email"
 						placeholder="Enter email address"
