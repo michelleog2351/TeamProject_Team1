@@ -4,7 +4,7 @@ $(document).ready(function () {
         <input class="form-control" type="text" id="name" name="name" required>
 
         <label class="form-label" for="runningTime">Running Time in Minutes</label>
-        <input class="form-control" type="text" id="runningTime" name="runningTime" required>
+        <input class="form-control" type="number" id="runningTime" name="runningTime" required>
 
         <label class="form-label" for="category">Category</label>
         <input class="form-control" type="text" id="category" name="category" required>
