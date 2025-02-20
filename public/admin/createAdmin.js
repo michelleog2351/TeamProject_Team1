@@ -14,7 +14,7 @@ $(`document`).ready(function () {
 
     $("#cancel").click(function (e) 
     {
-        location.replace("http://localhost:3000/admin.html");  
+        location.replace("http://localhost:3000/admin/admin.html");  
     })
 
     $("#save").click(function (e) 
@@ -28,7 +28,7 @@ $(`document`).ready(function () {
             password: password
         })
         .done(function () {
-            location.replace("http://localhost:3000/admin.html");
+            location.replace("http://localhost:3000/admin/admin.html");
         })
     });
 

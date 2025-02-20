@@ -1,4 +1,4 @@
- select * from film;
+-- select * from film;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;

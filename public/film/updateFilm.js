@@ -33,7 +33,7 @@ $(document).ready(function () {
     getJsonData(filmID);
 
     $("#cancel").click(function () {
-        location.replace("http://localhost:3000/film.html");
+        location.replace("http://localhost:3000/film/film.html");
     });
 
     $("#update").click(function () {
@@ -51,7 +51,7 @@ $(document).ready(function () {
         $.post(`http://localhost:3000/updateFilm/${filmID}`, updatedFilm)
             .done(function () {
                 alert("Film updated");
-                location.replace("http://localhost:3000/film.html");
+                location.replace("http://localhost:3000/film/film.html");
             })
             .fail(function () {
                 alert("Error updating film.");
@@ -75,6 +75,6 @@ function getJsonData(filmID) {
         $("#ReleaseDate").val(formattedDate);
     }).fail(function () {
         alert("Error fetching film details.");
-        location.replace("http://localhost:3000/film.html");
+        location.replace("http://localhost:3000/film/film.html");
     });
 }

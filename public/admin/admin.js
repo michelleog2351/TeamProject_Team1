@@ -9,7 +9,7 @@ $(`document`).ready(function () {
 
     $(".addButton").click(function (e) 
     {
-        location.replace("http://localhost:3000/createAdmin.html");  
+        location.replace("http://localhost:3000/admin/createAdmin.html");  
     });
 });
 
@@ -31,7 +31,7 @@ function getJsonData() {
                 let ID = e.target.value;
                 localStorage.setItem("ID",ID);
 
-                location.replace("http://localhost:3000/updateAdmin.html");
+                location.replace("http://localhost:3000/admin/updateAdmin.html");
             });
             $(".deleteButton").click(function (e) 
             {
@@ -40,7 +40,7 @@ function getJsonData() {
                     AdminID: ID
                 })
                 .done(function () {
-                    location.replace("http://localhost:3000/admin.html");
+                    location.replace("http://localhost:3000/admin/admin.html");
                 })
             });
 	});
