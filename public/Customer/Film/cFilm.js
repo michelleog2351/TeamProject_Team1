@@ -28,8 +28,7 @@ function fetchFilms() {
         $(document).on("click", ".viewDetailsButton", function () {
             let filmID = $(this).data("id");
             console.log("Selected Film ID:", filmID);
-            localStorage.setItem("FilmID", filmID);
-            location.href = "filmDetails.html";
+            location.href = `filmDetails.html?filmID=${filmID}`;
         });
     }).fail(function () {
         alert("Failed to load films.");
