@@ -2,6 +2,8 @@ $(document).ready(function () {
     $("#fbody").append(`
         <label class="form-label" for="name">Name</label>
         <input class="form-control" type="text" id="name" name="name" required>
+        <label class="form-label" for="runningTime">Running Time in Minutes</label>
+        <input class="form-control" type="text" id="runningTime" name="runningTime" required>
         <label class="form-label" for="category">Category</label>
         <input class="form-control" type="text" id="category" name="category" required>
         <label class="form-label" for="genre">Genre</label>
@@ -24,6 +26,7 @@ $(document).ready(function () {
         let newFilm = {
             name: $("#name").val(),
             category: $("#category").val(),
+            runningTime: $("#runningTime").val(),
             genre: $("#genre").val(),
             director: $("#director").val(),
             coverImage: $("#coverImage").val(),
