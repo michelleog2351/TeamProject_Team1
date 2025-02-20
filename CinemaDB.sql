@@ -1,4 +1,12 @@
 -- select * from admin;
+-- select * from booking;
+-- select * from film;
+-- select * from manager;
+-- select * from screening;
+-- select * from seat;
+-- select * from theatre;
+-- select * from ticket;
+-- select * from tickettype;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
@@ -56,7 +64,7 @@ CREATE TABLE `Screening` (
 CREATE TABLE `Booking` (
   `BookingID` INT NOT NULL AUTO_INCREMENT,
   `NoOfSeats` INT NOT NULL,
-  `Cost` DOUBLE NOT NULL,
+  `Cost` DECIMAL(5,2),
   `Email` varchar(50) NOT NULL,
   PRIMARY KEY (`BookingID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
