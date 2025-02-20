@@ -14,7 +14,7 @@ function nav() {
     <a href ="/screening/screening.html"> Screening </a>
     </li> | 
     <li class="nav-item">
-    <a href ="/theatre.html"> Theatre </a>
+    <a href ="/Theatre/theatre.html"> Theatre </a>
     </li> | 
     <li class="nav-item">
     <a href ="/admin.html"> Admin </a>
