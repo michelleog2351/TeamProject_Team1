@@ -1,7 +1,7 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="index.js"></script>
+    <script src="app.js"></script>
     <script src="nav.js"></script>
     <script src="footer.js"></script>
     <link
@@ -13,18 +13,44 @@
   </head>
 
   <body>
-    <nav id="nav" class="navbar navbar-expand-sm bg-light"></nav>
-    <hr />
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Add</th>
-          <th>Delete</th>
-          <th>Edit</th>
-        </tr>
-      </thead>
-      <tbody id="tbody"></tbody>
-    </table>
-    <footer id="footer" class="footer d-flex justify-content-center"></footer>
+    <div class="container-fluid">
+      <nav
+        id="nav"
+        class="navbar navbar-expand-sm bg-light"
+        style="padding: 15px 15px 15px 15px"
+      ></nav>
+      <hr />
+
+      <input
+        type="text"
+        value=""
+        class="form-control"
+        name="searchString"
+        placeholder="Search for films, genres..."
+        style="height: 50px"
+      />
+
+      <button type="button" class="btn btn-outline-secondary"
+      style="display: flex; align-items: center"
+      title="Clears the screen and resets filters"
+      onclick="clearFilters()">Clear</button>
+
+      <br />
+      <br />
+      <select class="form-select" name="cinema">
+        <option value="" selected>All Movies</option>
+      </select>
+
+      <table class="table">
+        <thead>
+          <tr></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <footer
+        id="footer"
+        class="footer d-flex justify-content-center text-muted"
+      ></footer>
+    </div>
   </body>
 </html>

@@ -3,7 +3,7 @@ $(document).ready(function () {
     footer();
     getJsonData();
     $(`#add`).append(
-        `<button type="button" class="addButton">Add</button>`
+        `<button type="button" class="addButton btn btn-primary">Add</button>`
     );
 
     $(".addButton").click(function () {
@@ -23,8 +23,8 @@ function getJsonData() {
                 <td id="seatsRemaining${value.SeatsRemaining}">${value.SeatsRemaining}</td>
                 <td id="theatreID${value.TheatreID}">${value.TheatreID}</td>
                 <td id="filmID${value.FilmID}">${value.FilmID}</td>
-                <td><button type="button" class="updateButton" value="${value.ScreeningID}">Update</button></td>
-                <td><button type="button" class="deleteButton" value="${value.ScreeningID}">Delete</button></td>
+                <td><button type="button" class="updateButton btn btn-secondary" value="${value.ScreeningID}">Update</button></td>
+                <td><button type="button" class="deleteButton btn btn-danger" value="${value.ScreeningID}">Delete</button></td>
                 </tr>`
             );
         });
