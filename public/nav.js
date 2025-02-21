@@ -21,7 +21,11 @@ function nav() {
     </li> |
     <li class="nav-item">
     <a href ="/manager.html"> Manager </a>
-    </li>|`;
+    </li>|
+    <li class="nav-item">
+    <a href ="/Customer/Film/cFilm.html"> Films Showing </a>
+    </li>|
+    `;
     if (sessionStorage.getItem("login") == "true") {
         navOutPut += `
         <li class="nav-item">
