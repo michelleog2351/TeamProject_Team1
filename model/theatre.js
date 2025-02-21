@@ -39,10 +39,9 @@ exports.getTheatres = function (req, res) {
   };
 
 exports.createTheatre = function (req, res) {
-  var TheatreID = req.body.TheatreID;
   var Capacity = req.body.Capacity;
-  const query = "INSERT INTO theatre (TheatreID, Capacity) VALUES (?, ?)";
-  connection.query(query, [TheatreID, Capacity], function (err, result) {
+  const query = "INSERT INTO theatre (Capacity) VALUES (?)";
+  connection.query(query, [Capacity], function (err, result) {
     if (err) 
         {
       console.error(err);

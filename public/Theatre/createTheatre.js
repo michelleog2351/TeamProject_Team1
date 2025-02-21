@@ -1,6 +1,5 @@
 $(document).ready(function () {
-    $("#fbody").append(`<label  class="form-label" for="TheatreID">TheatreID</label>
-        <input class="form-control" type="text" name="TheatreID" id="TheatreID"></input>
+    $("#fbody").append(`
 
         <label class="form-label" for="Capacity">Capacity</label>
         <input class="form-control" type="text" name="Capacity" id="Capacity"></input>
@@ -12,7 +11,6 @@ $(document).ready(function () {
 
     $("#save").click(function () {
         let newTheatre = {
-            TheatreID: $(`#TheatreID`).val(),
             Capacity : $(`#Capacity`).val(),
         };
         $.post(`http://localhost:3000/createTheatre`, newTheatre)
