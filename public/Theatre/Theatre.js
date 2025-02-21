@@ -1,12 +1,14 @@
-$(document).ready(function () {
+$(`document`).ready(function () {
     nav();
     footer();
     getJsonData();
     $(`#add`).append(
         `<button type="button" class="addButton">Add</button>`
-    );
+    )
 
-    $(".addButton").click(function () {
+
+    $(".addButton").click(function (e) 
+    {
         location.replace("http://localhost:3000/Theatre/createTheatre.html");
     });
 });
@@ -25,13 +27,15 @@ function getJsonData() {
         });
 
         $(".updateButton").click(function (e) {
+            e.preventDefault();
             let ID = e.target.value;
-            localStorage.setItem("TheatreID", ID);
+            localStorage.setItem("ID", ID);
             location.replace("http://localhost:3000/Theatre/updateTheatre.html");
         });
 
 
         $(".deleteButton").click(function (e) {
+            e.preventDefault();
             let ID = e.target.value;
             $.post(`http://localhost:3000/deleteTheatre/${ID}`)
                 .done(function () {

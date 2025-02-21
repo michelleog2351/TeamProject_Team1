@@ -1,4 +1,4 @@
- select * from film;
+--  select * from film;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
@@ -119,6 +119,9 @@ VALUES
 (40),
 (30),
 (20);
+
+
+
 
 INSERT INTO `Screening` (`StartTime`, `Date`, `SeatsRemaining`, `TheatreID`, `FilmID`)
 VALUES

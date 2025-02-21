@@ -24,10 +24,8 @@ $(`document`).ready(function () {
         e.preventDefault();
         let Capacity = $(`#Capacity`).val();
         
-
         $.post(`http://localhost:3000/updateTheatre/${ID}`, {
-            
-            Capacity: Capacity
+            Capacity: Capacity,
         })
         .done(function () {
             location.replace("http://localhost:3000/Theatre/Theatre.html");
@@ -37,27 +35,17 @@ $(`document`).ready(function () {
 });
 
 function getJsonData(ID) {
-    $.getJSON(`http://localhost:3000/Theatre/${ID}`, function(data){
+	$.getJSON(`http://localhost:3000/Theatre/${ID}`, function(data){
+		$.each(data, function(i, value){
+			$("#Capacity").val(data.Capacity);
 
-        $.each(data, function (i, value){
-            // Populate the input fields with the data
-        $("#Capacity").val(data.Capacity);  // Corrected case to match your DB field
-        })
-    });
-
-    $("#update").click(function (e) 
-    {
-        //e.preventDefault();
-        let Capacity = e.target.value;
-       // let Capacity = $("Capacity").val();
-        
-
-        $.post(`http://localhost:3000/updateTheatre/${ID}`, {
-            
-            Capacity: Capacity,
-        })
-        .done(function () {
-            location.replace("http://localhost:3000/Theatre/Theatre.html");
-        })
-    });
-}
+			});
+            $("#update").click(function (e) {
+                let Capacity = e.target.value;
+    
+                $.post(`http://localhost:3000/updateTheatre`, {
+                    Capacity: Capacity,
+                });
+            });
+	});
+} 

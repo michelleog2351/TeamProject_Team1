@@ -84,8 +84,6 @@ app.post("/deleteScreening/:screeningID", function(req, res){
     screening.deleteScreening(req, res);
 });
 
-
-
 app.get("/theatre/:TheatreID", function(req, res){
     Theatre.getTheatre(req, res);
 });
