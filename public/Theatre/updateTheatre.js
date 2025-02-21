@@ -5,7 +5,7 @@ $(`document`).ready(function () {
         `
 
         <label class="form-label" for="Capacity">Capacity</label>
-        <input class="form-control" type="text" name="Capacity" id="Capacity"></input>
+        <input class="form-control" type="text" name="Capacity" id="Capacity" placeholder="Enter Capacity" ></input>
         <br>`
         
     )
@@ -15,11 +15,13 @@ $(`document`).ready(function () {
 
     $("#cancel").click(function (e) 
     {
+        e.preventDefault();
         location.replace("http://localhost:3000/Theatre/Theatre.html");  
     })
 
     $("#update").click(function (e) 
     {
+        e.preventDefault();
         let Capacity = $(`#Capacity`).val();
         
 
@@ -37,7 +39,25 @@ $(`document`).ready(function () {
 function getJsonData(ID) {
     $.getJSON(`http://localhost:3000/Theatre/${ID}`, function(data){
 
-        // Populate the input fields with the data
-        $(`#Capacity`).val(data.Capacity);  // Corrected case to match your DB field
+        $.each(data, function (i, value){
+            // Populate the input fields with the data
+        $("#Capacity").val(data.Capacity);  // Corrected case to match your DB field
+        })
+    });
+
+    $("#update").click(function (e) 
+    {
+        //e.preventDefault();
+        let Capacity = e.target.value;
+       // let Capacity = $("Capacity").val();
+        
+
+        $.post(`http://localhost:3000/updateTheatre/${ID}`, {
+            
+            Capacity: Capacity,
+        })
+        .done(function () {
+            location.replace("http://localhost:3000/Theatre/Theatre.html");
+        })
     });
 }

@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#fbody").append(`
 
         <label class="form-label" for="Capacity">Capacity</label>
-        <input class="form-control" type="text" name="Capacity" id="Capacity"></input>
+        <input class="form-control" type="text" name="Capacity" id="Capacity" placeholder="Enter Capacity"></input>
         <br>
     `);
     $("#cancel").click(function () {
