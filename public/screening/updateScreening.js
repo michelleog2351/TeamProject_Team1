@@ -1,7 +1,7 @@
 $(`document`).ready(function () {
     nav();
     footer();
-    var ID = localStorage.getItem("ScreeningID",ID);
+    var ID = localStorage.getItem("ScreeningID");
     $(`#fbody`).append(
                 
         `
@@ -20,6 +20,13 @@ $(`document`).ready(function () {
             <input class="form-control" type="text" name="seatsRemaining" id="seatsRemaining"></input>
         </div>
 
+        <div class="mb-3">
+            <label class="form-label" for="theatre">Select Theatre</label>
+            <select class="form-select" id="theatreSelect" name="theatre">
+            
+            </select>
+        </div>
+
         
         <div class="mb-3">
             <label class="form-label" for="films">Select Film</label>
@@ -29,12 +36,7 @@ $(`document`).ready(function () {
         `
     );
     
-    // <div class="mb-3">
-    //         <label class="form-label" for="theatre">Select Theatre</label>
-    //         <select class="form-select" id="theatreSelect" name="theatre">
-            
-    //         </select>
-    //     </div>
+    
 
     getJsonData(ID);
 
@@ -49,8 +51,8 @@ $(`document`).ready(function () {
         let startTime = $(`#startTime`).val();
         let date = $(`#date`).val();
         let seatsRemaining  = $(`#seatsRemaining`).val();
-        let theatreID  = $(`#theatreID`).val();
-        let filmID = $(`#filmID`).val();
+        let theatreID  = $(`#theatreSelect`).val();
+        let filmID = $(`#filmSelect`).val();
         
 
         $.post(`http://localhost:3000/updateScreening/${ID}`, {
@@ -78,29 +80,34 @@ function getJsonData(ID) {
         $(`#date`).val(formattedDate);        
         $(`#seatsRemaining`).val(data.SeatsRemaining);  
         $(`#theatreID`).val(data.TheatreID); 
-        console.log(data.FilmID);
+        //Populate the drop down boxes with the correct film and theatre displayed
         getFilmData(data.FilmID);
+        getTheatreData();
+
         
     });
 }
 
 
 function getFilmData(FilmID) {
-    console.log(FilmID);
+    //Retrive the data from the film
     $.getJSON(`http://localhost:3000/films`, function (data) {
-        $(`#filmSelect`).empty();
         $.each(data, function (i, value) {
-            console.log(value.FilmID)
-            let isSelected = (value.FilmID === FilmID) ? 'selected' : ''; // Check if it's the current film
+            // IF Else to check film and select the one that is currently part of the screening
+            let isSelected = (value.FilmID === FilmID) ? 'selected' : ''; 
             $(`#filmSelect`).append(`<option value="${value.FilmID}" ${isSelected}>${value.Name}</option>`);
         });
     });
 }
 
-// function getTheatreData() {
-//     $.getJSON(`http://localhost:3000/theatre`, function (data) {
-//         $.each(data, function (i, value) {
-//             $(`#theatreSelect`).append(`<option value=${value.TheatreID}>${value.TheatreID}</option>`);
-//         });
-//     });
-// }
+function getTheatreData() {
+    // $.getJSON(`http://localhost:3000/theatre`, function (data) {
+    //     $.each(data, function (i, value) {
+    //         $(`#theatreSelect`).append(`<option value=${value.TheatreID}>${value.TheatreID}</option>`);
+    //     });
+    // });
+    for(var i =1; i<=5; i++)
+    {
+        $(`#theatreSelect`).append(`<option value=${i}>${i}</option>`);
+    }
+}

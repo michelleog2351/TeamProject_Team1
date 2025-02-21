@@ -17,7 +17,13 @@ $(document).ready(function () {
             <input class="form-control" type="text" name="seatsRemaining" id="seatsRemaining"></input>
         </div>
 
-        
+        <div class="mb-3">
+            <label class="form-label" for="theatre">Select Theatre</label>
+            <select class="form-select" id="theatreSelect" name="theatre">
+            
+            </select>
+        </div>
+
         <div class="mb-3">
             <label class="form-label" for="seatsRemaining">Select Film</label>
             <select class="form-select" id="filmSelect" name="films">
@@ -28,6 +34,7 @@ $(document).ready(function () {
     
 
     getFilmData()
+    getTheatreData();
 
     $("#cancel").click(function () {
         location.replace("http://localhost:3000/screening/screening.html");
@@ -38,12 +45,11 @@ $(document).ready(function () {
          startTime: $(`#startTime`).val(),
          date : $(`#date`).val(),
          seatsRemaining : $(`#seatsRemaining`).val(),
-         theatreID : $(`#theatreID`).val(),
-         filmID: $(`#filmID`).val()
+         theatreID : $(`#theatreSelect`).val(),
+         filmID: $(`#filmSelect`).val()
         };
         $.post(`http://localhost:3000/createScreening`, newScreening)
             .done(function () {
-                alert("Film created successfully!");
                 location.replace("http://localhost:3000/screening/screening.html");
             })
     });
@@ -52,16 +58,21 @@ $(document).ready(function () {
 
 function getFilmData() {
     $.getJSON(`http://localhost:3000/films`, function (data) {
+        console.log(data)
         $.each(data, function (i, value) {
-            $(`#filmSelect`).append(`<option value=${value.Id}>${value.Name}</option>`);
+            $(`#filmSelect`).append(`<option value=${value.FilmID}>${value.Name}</option>`);
         });
     });
 }
 
-// function getTheatreData() {
-//     $.getJSON(`http://localhost:3000/theatre`, function (data) {
-//         $.each(data, function (i, value) {
-//             $(`#theatreSelect`).append(`<option value=${value.TheatreID}>${value.TheatreID}</option>`);
-//         });
-//     });
-// }
+function getTheatreData() {
+    // $.getJSON(`http://localhost:3000/theatre`, function (data) {
+    //     $.each(data, function (i, value) {
+    //         $(`#theatreSelect`).append(`<option value=${value.TheatreID}>${value.TheatreID}</option>`);
+    //     });
+    // });
+    for(var i =1; i<=5; i++)
+    {
+        $(`#theatreSelect`).append(`<option value=${i}>${i}</option>`);
+    }
+}
