@@ -7,7 +7,7 @@ var mysql = require("mysql2");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
+  password: "root",
   database: "cinemaDB",
 });
 
@@ -41,6 +41,26 @@ exports.getScreening = function (req, res) {
     res.json(rows[0]);
   });
 };
+
+
+exports.getScreeningsByFilmID = function (req, res) {
+  var filmID = req.params.filmID; 
+
+  const query = "SELECT * FROM Screening WHERE FilmID = ?"; //creates a query using prepared statemetns
+  connection.query(query, [filmID], function (err, rows) {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Error getting screening");
+    }
+    if (rows.length === 0) {
+      return res.status(404).send({ message: "Screening not found" });
+    }
+    res.json(rows);
+  });
+};
+
+
+
 
 //Creates a new entry of Screening by passing name, email and password
 exports.createScreening = function (req, res) {

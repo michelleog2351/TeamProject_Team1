@@ -68,6 +68,11 @@ var myServer = app.listen(3000, function() {
 	screening.getScreening(req,res);
 });
 
+
+app.get("/screenings/:filmID", function(req,res){
+	screening.getScreeningsByFilmID(req,res);
+});
+
 app.get("/screenings", function(req,res){
 	screening.getScreenings(req,res);
 });

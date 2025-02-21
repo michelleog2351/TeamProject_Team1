@@ -31,11 +31,29 @@ function loadFilmDetails() {
                         Go Back
                     </button>
                 </div>
+                <div id="screeningDetails" class="card-body">
+                    <h6>Showings</h6>
+                </div>
             </div>
         `);
     }).fail(function (jqXHR, textStatus, errorThrown) {
         console.error("Failed to load film details:", textStatus, errorThrown);
         alert("Failed to load film details.");
         location.href = "cFilms.html";
+    });
+    fetchScreenings(filmID) 
+}
+
+function fetchScreenings(filmID) 
+{
+    $.getJSON(`http://localhost:3000/screenings/${filmID}`, function (data) {
+        $.each(data, function (i, value) {
+            alert(data)
+            $(`#screeningDetails`).append(
+                `
+                    <p class="card-text"><strong>${value.Time}</strong></p>
+                `
+            );
+        });
     });
 }
