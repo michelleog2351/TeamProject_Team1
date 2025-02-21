@@ -1,6 +1,6 @@
 function nav() {
   var navOutPut = `
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" style="padding: 15px 15px 15px 15px">
 <li class="nav-item">
             <a class="nav-link" href="/index.html">Home</a>
         </li>
