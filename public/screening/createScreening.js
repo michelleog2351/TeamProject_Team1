@@ -1,22 +1,31 @@
 $(document).ready(function () {
-    $("#fbody").append(`<label  class="form-label" for="startTime">Start Time</label>
-        <input class="form-control" type="time" name="startTime" id="startTime"></input>
+    nav();
+    footer();
+    $("#fbody").append(`
+        <div class="mb-3">
+            <label  class="form-label" for="startTime">Start Time</label>
+            <input class="form-control" type="time" name="startTime" id="startTime" />
+        </div>
 
-        <label class="form-label" for="date">Date</label>
-        <input class="form-control" type="date" name="date" id="date"></input>
+        <div class="mb-3">
+            <label class="form-label" for="date">Date</label>
+            <input class="form-control" type="date" name="date" id="date"></             >
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="seatsRemaining">Seats Remaining</label>
+            <input class="form-control" type="text" name="seatsRemaining" id="seatsRemaining"></input>
+        </div>
+
         
-        <label class="form-label" for="seatsRemaining">Seats Remaining</label>
-        <input class="form-control" type="text" name="seatsRemaining" id="seatsRemaining"></input>
-
-        <label class="form-label" for="theatreID">TheatreID</label>
-        <input class="form-control" type="text" name="theatreID" id="theatreID"></input>
-        <br>
-        <select class="form-select" id="filmSelect" name="films">
-            <option value="0">Select Film</option>
-        </select>
-        <br>
+        <div class="mb-3">
+            <label class="form-label" for="seatsRemaining">Select Film</label>
+            <select class="form-select" id="filmSelect" name="films">
+            </select>
+        </div>
     `);
 
+    
 
     getFilmData()
 
@@ -48,3 +57,11 @@ function getFilmData() {
         });
     });
 }
+
+// function getTheatreData() {
+//     $.getJSON(`http://localhost:3000/theatre`, function (data) {
+//         $.each(data, function (i, value) {
+//             $(`#theatreSelect`).append(`<option value=${value.TheatreID}>${value.TheatreID}</option>`);
+//         });
+//     });
+// }

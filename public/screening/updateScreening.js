@@ -1,25 +1,41 @@
 $(`document`).ready(function () {
-    var ID = localStorage.getItem("ID",ID);
+    nav();
+    footer();
+    var ID = localStorage.getItem("ScreeningID",ID);
     $(`#fbody`).append(
                 
-        `<label  class="form-label" for="startTime">Start Time</label>
-        <input class="form-control" type="text" name="startTime" id="startTime"></input>
+        `
+        <div class="mb-3">
+            <label  class="form-label" for="startTime">Start Time</label>
+            <input class="form-control" type="time" name="startTime" id="startTime"></input>
+        </div>
 
-        <label class="form-label" for="date">Date</label>
-        <input class="form-control" type="text" name="date" id="date"></input>
+        <div class="mb-3">
+            <label class="form-label" for="date">Date</label>
+            <input class="form-control" type="date" name="date" id="date"></input>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="seatsRemaining">Seats Remaining</label>
+            <input class="form-control" type="text" name="seatsRemaining" id="seatsRemaining"></input>
+        </div>
+
         
-        <label class="form-label" for="seatsRemaining">Seats Remaining</label>
-        <input class="form-control" type="text" name="seatsRemaining" id="seatsRemaining"></input>
-
-        <label class="form-label" for="theatreID">TheatreID</label>
-        <input class="form-control" type="text" name="theatreID" id="theatreID"></input>
-
-        <label class="form-label" for="filmID">FilmID</label>
-        <input class="form-control" type="text" name="filmID" id="filmID"></input>
-        <br>`
-        
-    )
+        <div class="mb-3">
+            <label class="form-label" for="films">Select Film</label>
+            <select class="form-select" id="filmSelect" name="films">
+            </select>
+        </div>
+        `
+    );
     
+    // <div class="mb-3">
+    //         <label class="form-label" for="theatre">Select Theatre</label>
+    //         <select class="form-select" id="theatreSelect" name="theatre">
+            
+    //         </select>
+    //     </div>
+
     getJsonData(ID);
 
 
@@ -58,10 +74,33 @@ function getJsonData(ID) {
         let formattedDate = screeningDate.toISOString().split('T')[0];
 
         // Populate the input fields with the data
-        $(`#startTime`).val(data.StartTime);  // Corrected case to match your DB field
-        $(`#date`).val(formattedDate);        // Corrected formatted date for the input
-        $(`#seatsRemaining`).val(data.SeatsRemaining);  // Corrected to match your DB field
-        $(`#theatreID`).val(data.TheatreID);  // Corrected to match your DB field
-        $(`#filmID`).val(data.FilmID);        // Corrected to match your DB field
+        $(`#startTime`).val(data.StartTime);  
+        $(`#date`).val(formattedDate);        
+        $(`#seatsRemaining`).val(data.SeatsRemaining);  
+        $(`#theatreID`).val(data.TheatreID); 
+        console.log(data.FilmID);
+        getFilmData(data.FilmID);
+        
     });
 }
+
+
+function getFilmData(FilmID) {
+    console.log(FilmID);
+    $.getJSON(`http://localhost:3000/films`, function (data) {
+        $(`#filmSelect`).empty();
+        $.each(data, function (i, value) {
+            console.log(value.FilmID)
+            let isSelected = (value.FilmID === FilmID) ? 'selected' : ''; // Check if it's the current film
+            $(`#filmSelect`).append(`<option value="${value.FilmID}" ${isSelected}>${value.Name}</option>`);
+        });
+    });
+}
+
+// function getTheatreData() {
+//     $.getJSON(`http://localhost:3000/theatre`, function (data) {
+//         $.each(data, function (i, value) {
+//             $(`#theatreSelect`).append(`<option value=${value.TheatreID}>${value.TheatreID}</option>`);
+//         });
+//     });
+// }

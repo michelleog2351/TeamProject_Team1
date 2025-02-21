@@ -30,14 +30,13 @@ async function getJsonData() {
             );
         });
 
-        $(".updateButton").click(function (e) {
+        $(document).on('click', '.updateButton', function (e) {
             let ID = e.target.value;
             localStorage.setItem("ScreeningID", ID);
             location.replace("http://localhost:3000/screening/updateScreening.html");
         });
-
-
-        $(".deleteButton").click(function (e) {
+        
+        $(document).on('click', '.deleteButton', function (e) {
             let ID = e.target.value;
             $.post(`http://localhost:3000/deleteScreening/${ID}`)
                 .done(function () {
@@ -50,6 +49,5 @@ async function getJsonData() {
 
 async function getFilmData(ID) {
     data = await $.getJSON(`http://localhost:3000/film/${ID}`);
-        console.log(data)
         return data.Name;
 }
