@@ -22,19 +22,19 @@
 
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="mb-3" style="flex: 2">
-          <select class="form-select" name="selectFilm">
+          <select id="selectFilm" class="form-select" name="selectFilm">
             <option value="" selected>Select Film</option>
           </select>
         </div>
 
         <div class="mb-3 ms-3" style="flex: 1">
-          <select class="form-select" name="selectDate">
+          <select id="selectDate" class="form-select" name="selectDate">
             <option value="" selected>Select Date</option>
           </select>
         </div>
 
         <div class="mb-3 ms-3" style="flex: 1">
-          <select class="form-select" name="selectTime">
+          <select id="selectStartTime" class="form-select" name="selectStartTime">
             <option value="" selected>Select Time</option>
           </select>
         </div>
@@ -73,13 +73,8 @@
       >
         Clear
       </button> -->
+      <div id="filmCards" class="row"></div>
 
-      <table class="table">
-        <thead>
-          <tr></tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
       <footer
         id="footer"
         class="footer d-flex justify-content-center text-muted"
