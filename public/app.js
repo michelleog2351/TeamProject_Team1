@@ -3,6 +3,9 @@ $(document).ready(function () {
   footer();
 
   //search();
+  //filmDD();
+  //dateDD();
+  //timeDD();
   
 });
 

@@ -6,6 +6,9 @@ function nav() {
                 <a class="nav-link" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/Customer/Film/cFilm.html">Now Showing</a>
+            </li> 
+            <li class="nav-item">
                 <a class="nav-link" href="/film.html">Film</a>
             </li>
             <li class="nav-item">
@@ -22,10 +25,7 @@ function nav() {
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/manager.html">Manager</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Customer/Film/cFilm.html">Films Showing</a>
-            </li>    
+            </li>   
     `;
   if (sessionStorage.getItem("login") == "true") {
     navOutPut += `
