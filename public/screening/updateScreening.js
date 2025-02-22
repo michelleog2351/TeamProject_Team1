@@ -1,4 +1,7 @@
 $(`document`).ready(function () {
+    nav();
+    footer();
+
     var ID = localStorage.getItem("ID",ID);
     $(`#fbody`).append(
                 

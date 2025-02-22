@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    nav();
+    footer();
+    
     $("#fbody").append(`
         <label class="form-label" for="name">Name</label>
         <input class="form-control" type="text" id="name" name="name" required>

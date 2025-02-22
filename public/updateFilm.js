@@ -1,4 +1,7 @@
-$(document).ready(function () {
+$("document").ready(function () {
+    nav();
+    footer();
+
     var filmID = localStorage.getItem("FilmID");
 
     $("#fbody").append(`
