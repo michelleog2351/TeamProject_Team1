@@ -21,13 +21,17 @@ function filmDD() {
         `<br />
         <div class="col-md-4 mb-3">
           <div class="card">
-            <img src="images/${film.Name.replace(/\s+/g, "_")}.jpg" 
-                 class="card-img-top img-fluid w-100"
-                 alt="${film.Name}"
-                 style="height: 400px;  
-								 width: 100px;
-								 object-fit: cover;"
-            />
+							<img src="images/${film.Name.replace(/\s+/g, "_")}.jpg" 
+									class="card-img-top img-fluid w-100"
+									alt="${film.Name}"
+									style="height: 400px;  
+									width: 100px;
+									object-fit: cover;"
+							/>
+							<div class="overlay">
+								<a href="Customer/Film/filmDetails.html" 
+								class="overlay-button btn btn-success">Watch: ${film.Name} Now</a>            
+							</div>
             </div> 
 						<h5 class="card-title">${film.Name}</h5>
           </div>

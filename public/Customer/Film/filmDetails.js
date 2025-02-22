@@ -1,22 +1,21 @@
 $(document).ready(function () {
-    if (typeof nav === 'function') nav();
-    if (typeof footer === 'function') footer();
-    loadFilmDetails();
+  if (typeof nav === "function") nav();
+  if (typeof footer === "function") footer();
+  loadFilmDetails();
 });
 
 function loadFilmDetails() {
-    const filmID = localStorage.getItem("FilmID");
-    console.log("Retrieved FilmID:", filmID);
-    if (!filmID) {
-        alert("No film selected.");
-        location.href = "cFilms.html";
-        return;
-    }
+  const filmID = localStorage.getItem("FilmID");
+  console.log("Retrieved FilmID:", filmID);
+  if (!filmID) {
+    alert("No film selected.");
+    location.href = "cFilms.html";
+    return;
+  }
 
-    $.getJSON(`http://localhost:3000/film/${filmID}`, function (value) {
-
-        let releaseDate = new Date(value.ReleaseDate).toISOString().split('T')[0];
-        $('#filmDetails').html(`
+  $.getJSON(`http://localhost:3000/film/${filmID}`, function (value) {
+    let releaseDate = new Date(value.ReleaseDate).toISOString().split("T")[0];
+    $("#filmDetails").html(`
             <div class="card">
                 <img src="${value.CoverImage}" class="card-img-top img-fluid" alt="${value.Name}" style="height: 400px; object-fit: cover;">
                 <div class="card-body">
@@ -33,9 +32,9 @@ function loadFilmDetails() {
                 </div>
             </div>
         `);
-    }).fail(function (jqXHR, textStatus, errorThrown) {
-        console.error("Failed to load film details:", textStatus, errorThrown);
-        alert("Failed to load film details.");
-        location.href = "cFilms.html";
-    });
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    console.error("Failed to load film details:", textStatus, errorThrown);
+    alert("Failed to load film details.");
+    location.href = "cFilms.html";
+  });
 }
