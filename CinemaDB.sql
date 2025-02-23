@@ -1,4 +1,12 @@
- select * from film;
+-- select * from admin;
+-- select * from booking;
+-- select * from film;
+-- select * from manager;
+-- select * from screening;
+-- select * from seat;
+-- select * from theatre;
+-- select * from ticket;
+-- select * from tickettype;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
