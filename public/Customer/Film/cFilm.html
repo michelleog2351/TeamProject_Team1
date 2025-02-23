@@ -13,7 +13,6 @@
     <script src="cFilm.js"></script>
     <script src="../../nav.js"></script>
     <script src="footer.js"></script>
-
   </head>
   <body>
     <div class="container-fluid">
@@ -21,6 +20,40 @@
       <hr />
       <h1>Films</h1>
       <hr />
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="mb-3" style="flex: 2">
+          <input
+            type="text"
+            value=""
+            class="form-control"
+            id="searchInput"
+            name="searchFilm"
+            placeholder="Search for films by name, category..."
+            style="height: 50px"
+          />
+        </div>
+
+        <div class="mb-3 ms-3" style="flex: 1">
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-lg"
+            style="display: flex"
+            title="Clears the screen and resets filters"
+            onclick="clearFilter()"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="noFilmsAlert"
+        class="alert alert-info mb-3"
+        style="display: none; max-width: 830px; margin-top: 15px"
+      >
+        No films found matching your search criteria. Please try again.
+      </div>
+
       <div id="filmCards" class="row"></div>
       <hr />
       <footer id="footer" class="footer d-flex justify-content-center"></footer>

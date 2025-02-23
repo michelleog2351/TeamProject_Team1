@@ -5,7 +5,10 @@ $(document).ready(function () {
 });
 
 function loadFilmDetails() {
-  const filmID = localStorage.getItem("FilmID");
+  // const filmID = localStorage.getItem("FilmID");
+  const urlParams = new URLSearchParams(window.location.search);
+  const filmID = urlParams.get("filmID"); // Get the FilmID from the URL
+
   console.log("Retrieved FilmID:", filmID);
   if (!filmID) {
     alert("No film selected.");
@@ -35,6 +38,6 @@ function loadFilmDetails() {
   }).fail(function (jqXHR, textStatus, errorThrown) {
     console.error("Failed to load film details:", textStatus, errorThrown);
     alert("Failed to load film details.");
-    location.href = "cFilms.html";
+    location.href = "cFilm.html";
   });
 }
