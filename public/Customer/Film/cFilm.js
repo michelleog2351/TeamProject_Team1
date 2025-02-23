@@ -11,6 +11,14 @@ $(document).ready(function () {
   });
 });
 
+/*
+ * IMAGES
+ * <img src="../../images/${value.Name.replace(/\s+/g, "_")}.jpg"
+ * can put this line anywhere it has value.CoverImage
+ * to view the images, which are stored in the images folder
+ *
+ */
+
 function search() {
   var searchInput = $("#searchInput").val().toLowerCase();
   $("#filmCards").empty();
@@ -108,8 +116,6 @@ function fetchFilms() {
 				</div>
 			`);
     });
-
-    // <img src="../../images/${value.Name.replace(/\s+/g, "_")}.jpg" can replace line 15 with this if you want to view
 
     $(document).on("click", ".viewDetailsButton", function () {
       let filmID = $(this).data("id");
