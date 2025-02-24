@@ -37,7 +37,6 @@ $(`document`).ready(function () {
         })
     });
   });
-});
 
 function getJsonData(ID) {
   $.getJSON(`http://localhost:3000/admin/${ID}`, function (data) {
