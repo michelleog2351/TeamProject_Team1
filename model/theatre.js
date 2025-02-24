@@ -55,8 +55,8 @@ exports.updateTheatre = function (req, res) {
     var TheatreID = req.params.TheatreID;
     var Capacity = req.body.Capacity;
     
-    const query = "UPDATE theatre SET TheatreID = ?, Capacity = ?";
-    connection.query(query, [TheatreID, Capacity], function (err, result) {
+    const query = "UPDATE theatre SET Capacity = ? WHERE TheatreID = ?";
+    connection.query(query, [Capacity, TheatreID], function (err, result) {
       if (err) 
         {
         console.error(err);

@@ -36,16 +36,8 @@ $(`document`).ready(function () {
 
 function getJsonData(ID) {
 	$.getJSON(`http://localhost:3000/Theatre/${ID}`, function(data){
-		$.each(data, function(i, value){
+		{
 			$("#Capacity").val(data.Capacity);
-
-			});
-            $("#update").click(function (e) {
-                let Capacity = e.target.value;
-    
-                $.post(`http://localhost:3000/updateTheatre`, {
-                    Capacity: Capacity,
-                });
-            });
+        }
 	});
 } 
