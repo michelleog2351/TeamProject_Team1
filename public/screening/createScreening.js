@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    nav();
+    footer();
+    
     $("#fbody").append(`<label  class="form-label" for="startTime">Start Time</label>
         <input class="form-control" type="time" name="startTime" id="startTime"></input>
 

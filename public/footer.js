@@ -1,6 +1,6 @@
 function footer() {
-    var footerOutPut = `
+  var footerOutPut = `
     <hr>
-    <p> &copy; Appplied Computing Group 1</p>`
-    $("#footer").html(footerOutPut);
+    <div> &copy; Appplied Computing Group 1</div>`;
+  $("#footer").html(footerOutPut);
 }
