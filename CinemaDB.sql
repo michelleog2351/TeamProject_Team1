@@ -128,6 +128,9 @@ VALUES
 (30),
 (20);
 
+
+
+
 INSERT INTO `Screening` (`StartTime`, `Date`, `SeatsRemaining`, `TheatreID`, `FilmID`)
 VALUES
 ('18:30:00', '2025-02-14', 20, 1, 1),  

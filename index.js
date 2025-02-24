@@ -6,7 +6,7 @@ var cors = require("cors");
 var admin = require('./model/admin');
 var film = require('./model/film');
 var screening = require('./model/screening');
-// var theatre = require('./model/theatre');
+var Theatre = require('./model/theatre');
 // var ticket = require('./model/ticket');
 // var manager = require('./model/manager');
 // var booking = require('./model/booking');
@@ -82,4 +82,24 @@ app.post("/createScreening", function(req,res){
 
 app.post("/deleteScreening/:screeningID", function(req, res){
     screening.deleteScreening(req, res);
+});
+
+app.get("/theatre/:TheatreID", function(req, res){
+    Theatre.getTheatre(req, res);
+});
+
+app.get("/theatres", function(req, res){
+    Theatre.getTheatres(req, res);
+});
+
+app.post("/updateTheatre/:TheatreID", function(req, res){
+    Theatre.updateTheatre(req, res);
+});
+
+app.post("/createTheatre", function(req, res){
+    Theatre.createTheatre(req, res);
+});
+
+app.post("/deleteTheatre/:TheatreID", function(req, res){
+    Theatre.deleteTheatre(req, res);
 });
