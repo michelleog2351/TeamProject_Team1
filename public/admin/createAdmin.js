@@ -1,6 +1,7 @@
 $(`document`).ready(function () {
-
-    $(`#fbody`).append(
+    nav();
+    footer();
+  $(`#fbody`).append(
     `<label  class="form-label" for="name">Name</label>
     <input class="form-control" type="text" name="name" id="name"></input>
 
@@ -10,7 +11,7 @@ $(`document`).ready(function () {
     <label class="form-label" for="password">Password</label>
     <input class="form-control" type="text" name="password" id="password"></input>
     <br>`
-    )
+  );
 
     $("#cancel").click(function (e) 
     {
@@ -31,5 +32,5 @@ $(`document`).ready(function () {
             location.replace("http://localhost:3000/admin/admin.html");
         })
     });
-
+  });
 });

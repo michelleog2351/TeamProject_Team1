@@ -3,7 +3,7 @@ $(document).ready(function () {
     footer();
     getJsonData();
     $(`#add`).append(
-        `<button type="button" class="addButton">Add</button>`
+        `<button type="button" class="addButton btn btn-primary">Add</button>`
     );
 
     $(".addButton").click(function () {

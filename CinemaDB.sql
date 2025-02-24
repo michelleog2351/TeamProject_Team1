@@ -1,5 +1,12 @@
+-- select * from admin;
+-- select * from booking;
+-- select * from film;
+-- select * from manager;
 -- select * from screening;
-
+-- select * from seat;
+-- select * from theatre;
+-- select * from ticket;
+-- select * from tickettype;
 
 DROP DATABASE IF EXISTS `cinemaDB`;
 CREATE DATABASE `cinemaDB`;
@@ -114,6 +121,9 @@ VALUES
 (40),
 (30),
 (20);
+
+
+
 
 INSERT INTO `Screening` (`StartTime`, `Date`, `SeatsRemaining`, `TheatreID`, `FilmID`)
 VALUES

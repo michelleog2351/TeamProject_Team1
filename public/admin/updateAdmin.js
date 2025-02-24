@@ -1,8 +1,9 @@
 $(`document`).ready(function () {
-    var ID = localStorage.getItem("ID",ID);
-    $(`#fbody`).append(
-                
-        `<label  class="form-label" for="name">Name</label>
+  nav();
+  footer();
+  var ID = localStorage.getItem("ID", ID);
+  $(`#fbody`).append(
+    `<label  class="form-label" for="name">Name</label>
         <input class="form-control" type="text" name="name" id="name"></input>
 
         <label class="form-label" for="email">Email</label>
@@ -11,10 +12,9 @@ $(`document`).ready(function () {
         <label class="form-label" for="password">Password</label>
         <input class="form-control" type="text" name="password" id="password"></input>
         <br>`
-        
-    )
-    
-    getJsonData(ID);
+  );
+
+  getJsonData(ID);
 
 
     $("#cancel").click(function (e) 
@@ -36,25 +36,25 @@ $(`document`).ready(function () {
             location.replace("http://localhost:3000/admin/admin.html");
         })
     });
-
+  });
 });
 
 function getJsonData(ID) {
-	$.getJSON(`http://localhost:3000/admin/${ID}`, function(data){
-		$.each(data, function(i, value){
-			$("#name").val(data.Name)
-            $("#email").val(data.Email)
-            $("#password").val(data.Password)
+  $.getJSON(`http://localhost:3000/admin/${ID}`, function (data) {
+    $.each(data, function (i, value) {
+      $("#name").val(data.Name);
+      $("#email").val(data.Email);
+      $("#password").val(data.Password);
+    });
 
-			});
-            $(".updateButton").click(function (e) {
-                let name = e.target.value;
-    
-                $.post(`http://localhost:3000/updateAdmin`, {
-                    Name: name,
-                    Email: email,
-                    Password: password
-                });
-            });
-	});
-} 
+    $(".updateButton").click(function (e) {
+      let name = e.target.value;
+
+      $.post(`http://localhost:3000/updateAdmin`, { 
+        Name: name,
+        Email: email,
+        Password: password,
+      });
+    });
+  });
+}

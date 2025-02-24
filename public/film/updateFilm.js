@@ -1,4 +1,7 @@
-$(document).ready(function () {
+$("document").ready(function () {
+    nav();
+    footer();
+
     var filmID = localStorage.getItem("FilmID");
 
     $("#fbody").append(`
@@ -9,10 +12,10 @@ $(document).ready(function () {
         <input class="form-control" type="text" id="category" name="category" required>
 
         <label class="form-label" for="runningTime">Running Time in Minutes</label>
-        <input class="form-control" type="text" id="runningTime" name="runningTime" required>
+        <input class="form-control" type="number" id="runningTime" name="runningTime" required>
         
 
-        <label class="form-label" for="genre">Genre</label>
+        <label class="form-label" for="genre">Age Rating</label>
         <input class="form-control" type="text" id="genre" name="genre" required>
 
         <label class="form-label" for="director">Director</label>
